@@ -23,8 +23,8 @@ case $1 in
     echo /var/vcap/sys/cores/core-%e-%s-%p-%t > /proc/sys/kernel/core_pattern
 
     # Setup rootfs
-    ROOTFS_PACKAGE=/var/vcap/packages/rootfs_cflinuxfs2/ 
-    ROOTFS_DIR=$ROOTFS_PACKAGE/rootfs 
+    ROOTFS_PACKAGE=<%= p('dea_next.stacks')[0]['package_path'] %>
+    ROOTFS_DIR=$ROOTFS_PACKAGE/rootfs
     if [ ! -d $ROOTFS_DIR ]; then
       mkdir -p $ROOTFS_DIR
       tar -pzxf $ROOTFS_PACKAGE/cflinuxfs2.tar.gz -C $ROOTFS_DIR
