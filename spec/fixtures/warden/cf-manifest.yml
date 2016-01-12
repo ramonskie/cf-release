@@ -498,6 +498,8 @@ jobs:
     release: cf
   - name: route_registrar
     release: cf
+  - name: consul_agent
+    release: cf
   update: {}
 - instances: 0
   name: hm9000_z2
@@ -519,6 +521,8 @@ jobs:
   - name: hm9000
     release: cf
   - name: metron_agent
+    release: cf
+  - name: consul_agent
     release: cf
   - name: route_registrar
     release: cf

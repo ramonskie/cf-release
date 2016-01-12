@@ -105,6 +105,8 @@ meta:
     release: (( meta.release.name ))
   - name: route_registrar
     release: (( meta.release.name ))
+  - name: consul_agent
+    release: (( meta.consul_templates.consul_agent.release ))
 
   loggregator_templates:
   - name: doppler
@@ -454,6 +456,10 @@ jobs:
     networks:
       - name: cf1
     properties:
+      consul:
+        agent:
+          services:
+            hm9000: {}
       metron_agent:
         zone: z1
       route_registrar:
@@ -467,6 +473,10 @@ jobs:
     networks:
       - name: cf2
     properties:
+      consul:
+        agent:
+          services:
+            hm9000: {}
       metron_agent:
         zone: z2
       route_registrar:
