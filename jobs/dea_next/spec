@@ -7,6 +7,7 @@ templates:
   dea.yml.erb: config/dea.yml
   dea_ctl.erb: bin/dea_ctl
   deterministic_drain.rb: bin/drain
+  dns_health_check.erb: bin/dns_health_check
 
   warden.yml.erb: config/warden.yml
   warden_ctl.erb: bin/warden_ctl
@@ -147,4 +148,3 @@ properties:
     description: "User name to access internal endpoints"
   cc.internal_api_password:
     description: "Password to access internal endpoints"
-
