@@ -90,6 +90,9 @@ properties:
   dea_next.instance_disk_inode_limit:
     description: Limit on inodes for an instance container
     default: 200000
+  dea_next.instance_nproc_limit:
+    description: Limit on nproc for an instance container
+    default: 512
   dea_next.staging_bandwidth_limit.rate:
     description: "Network bandwidth limit for staging tasks in bytes per second"
   dea_next.staging_bandwidth_limit.burst:

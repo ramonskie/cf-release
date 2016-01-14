@@ -998,6 +998,7 @@ properties:
     heartbeat_interval_in_seconds: 10
     instance_bandwidth_limit: null
     instance_disk_inode_limit: 200000
+    instance_nproc_limit: 512
     kernel_network_tuning_enabled: true
     logging_level: debug
     memory_mb: 1024
