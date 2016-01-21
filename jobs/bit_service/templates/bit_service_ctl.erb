@@ -1,0 +1,39 @@
+#!/bin/bash
+
+source /var/vcap/jobs/bit_service/bin/ruby_version.sh
+export BUNDLE_GEMFILE=/var/vcap/packages/bit_service/bit_service/Gemfile
+
+RUN_DIR=/var/vcap/sys/run/bit_service
+LOG_DIR=/var/vcap/sys/log/bit_service
+PIDFILE=$RUN_DIR/bit_service.pid
+SOCKFILE=$RUN_DIR/bit_service.sock
+
+source /var/vcap/packages/common/utils.sh
+
+case $1 in
+
+  start)
+    mkdir -p $RUN_DIR
+    mkdir -p $LOG_DIR
+
+    chown vcap:vcap $RUN_DIR
+    chown vcap:vcap $LOG_DIR
+
+    pid_guard $PIDFILE "Bit Service"
+
+    cd /var/vcap/packages/bit_service/bit_service
+
+    bundle exec thin --socket $SOCKFILE \
+      -R config.ru \
+      -P $PIDFILE \
+      -d start
+    ;;
+  stop)
+    kill_and_wait $PIDFILE
+    ;;
+
+  *)
+    echo "Usage: bit_service_ctl {start|stop}"
+    ;;
+
+esac

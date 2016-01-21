@@ -1,0 +1,9 @@
+---
+name: bit_service
+dependencies:
+- ruby-2.2.4
+
+files:
+- bit_service/{.ruby-version,Rakefile,Gemfile,Gemfile.lock}
+- bit_service/*.rb
+- bit_service/*.ru

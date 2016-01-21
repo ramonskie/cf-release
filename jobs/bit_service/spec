@@ -1,0 +1,18 @@
+---
+name: bit_service
+
+description: "bits, bits, all the bits."
+
+templates:
+  bit_service_ctl.erb: bin/bit_service_ctl
+  ruby_version.sh.erb: bin/ruby_version.sh
+
+packages:
+  - ruby-2.2.4
+  - bit_service
+  - common
+
+properties:
+  ssl.skip_cert_verify:
+    description: "specifies that the job is allowed to skip ssl cert verification"
+    default: true

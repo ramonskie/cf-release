@@ -1,0 +1,5 @@
+check process bit_service
+  with pidfile /var/vcap/sys/run/bit_service/bit_service.pid
+  start program "/var/vcap/jobs/bit_service/bin/bit_service_ctl start"
+  stop program "/var/vcap/jobs/bit_service/bin/bit_service_ctl stop"
+  group vcap
