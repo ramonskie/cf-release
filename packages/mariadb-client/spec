@@ -1,0 +1,4 @@
+---
+name: mariadb-client
+files:
+- libmariadbclient-dev_5.5.46-1ubuntu0.14.04.2_amd64.tar.gz
