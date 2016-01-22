@@ -1,10 +1,17 @@
 require 'sinatra'
+require 'fileutils'
 
-get '/hi' do
-    "Hello World!"
+put '/v2/buildpacks/:guid/bits' do |guid|
+    puts "guid: " + guid
+    path = params["#{'buildpack'}_path"]
+    puts "path: " + path.to_s
+
+    FileUtils.mv(path.to_s, guid)
+    "ok"
 end
 
-put '/v2/buildpacks/014a4c43-4a9b-416f-b4e1-5d1c9f8f145b/bits' do
-    puts "got stuff!"
-      "some thing"
+get '/v2/buildpacks/:guid/download' do |guid|
+    path = '/bosh-lite.com-cc-buildpacks/' + guid
+    puts path
+    headers "X-Accel-Redirect" => path
 end
