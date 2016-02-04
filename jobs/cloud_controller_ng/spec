@@ -559,3 +559,7 @@ properties:
   router.route_services_secret:
     description: "Support for route services is disabled when no value is configured."
     default: ""
+
+  cc.bits_service.enabled:
+    description: "Enable integration of the bits-service incubator (experimantal)"
+    default: false
