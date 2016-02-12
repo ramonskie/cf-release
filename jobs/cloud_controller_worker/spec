@@ -454,3 +454,6 @@ properties:
   cc.bits_service.enabled:
     description: "Enable integration of the bits-service incubator (experimantal)"
     default: false
+  cc.bits_service.endpoint:
+    description: "Location of the bits-service. e.g http://10.10.10.1"
+    default: ""
