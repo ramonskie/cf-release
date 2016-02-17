@@ -97,6 +97,9 @@ properties:
   router.logging_level:
     description: "Log level for router"
     default: "info"
+  router.skip_uaa_tls_verification:
+    description: "Skip verification of the UAA TLS certificate"
+    default: false
 
   nats.user:
     description:
@@ -132,9 +135,9 @@ properties:
   
   uaa.clients.gorouter.secret:
     description: "Password for UAA client for the gorouter."
-  uaa.port:
-    description: "Port on which UAA is running."
-    default: 8080
+  uaa.ssl.port:
+    description: "TLS Port on which UAA is listening."
+    default: 8443
 
   routing-api.port:
     description: "Port on which routing-api is running."
