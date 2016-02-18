@@ -297,6 +297,8 @@ properties:
       external_groups: ~
       groups: ~
 
+    sslCertificate: (( merge ))
+    sslPrivateKey: (( merge ))
     ssl:
       port: -1
 

@@ -836,6 +836,7 @@ properties:
     cipher_suites: (( merge || nil ))
     requested_route_registration_interval_in_seconds: (( merge || nil ))
     ssl_skip_validation: (( merge || nil ))
+    skip_uaa_tls_verification: (( merge || nil ))
     port: (( merge || nil ))
     status:
       user: (( merge ))

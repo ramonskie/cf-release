@@ -10,12 +10,52 @@ properties:
     disk_mb: 32768
     disk_overcommit_factor: 3
     kernel_network_tuning_enabled: false
+  router:
+    skip_uaa_tls_verification: true 
   uaa:
     require_https: false
     zones:
       internal:
         hostnames:
         - uaa.service.cf.internal
+    ssl:
+      port: 8443
+    sslCertificate: |
+      -----BEGIN CERTIFICATE-----
+      MIIDEzCCAnygAwIBAgIJAL+vc9bTiTNLMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNV
+      BAYTAlVTMQswCQYDVQQIEwJDQTELMAkGA1UEBxMCU0YxDDAKBgNVBAoTA1VBQTEM
+      MAoGA1UECxMDdWFhMSAwHgYDVQQDExd1YWEuc2VydmljZS5jZi5pbnRlcm5hbDAe
+      Fw0xNjAyMTcyMTQyNDVaFw0xNzAyMTYyMTQyNDVaMGUxCzAJBgNVBAYTAlVTMQsw
+      CQYDVQQIEwJDQTELMAkGA1UEBxMCU0YxDDAKBgNVBAoTA1VBQTEMMAoGA1UECxMD
+      dWFhMSAwHgYDVQQDExd1YWEuc2VydmljZS5jZi5pbnRlcm5hbDCBnzANBgkqhkiG
+      9w0BAQEFAAOBjQAwgYkCgYEAuuqJJ9PMi+W/tWckhhut9gil1HcRb7s17D4Mi1qX
+      zvZ9KDi2CoGkNVSlFcp7BfRFlwHdho1A4LJufGgJmVIQh+VX3GPEyYCSSZ079Z6y
+      DT9xRq1d6Yut/5dFBRnDpuIvyNhyXcIzjWLGlPx4o/KmSMi4yEop2AZeag/+htkp
+      ZSMCAwEAAaOByjCBxzAdBgNVHQ4EFgQU/G0vbWZDJOYGJfjVOtOdILvlUqwwgZcG
+      A1UdIwSBjzCBjIAU/G0vbWZDJOYGJfjVOtOdILvlUqyhaaRnMGUxCzAJBgNVBAYT
+      AlVTMQswCQYDVQQIEwJDQTELMAkGA1UEBxMCU0YxDDAKBgNVBAoTA1VBQTEMMAoG
+      A1UECxMDdWFhMSAwHgYDVQQDExd1YWEuc2VydmljZS5jZi5pbnRlcm5hbIIJAL+v
+      c9bTiTNLMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQELBQADgYEAJOfZPN4LE1OH
+      11dD5HMm41qEKwmGyj/GYMdfF7M4CRYsujEA9s08R0vpnZEv5yOQkNI9LxdnlV++
+      x2vC2v8Q5vD9DZdFesaAFbb2bhH8IPM7VDywLeGMwUPlKAgLXhiqztPKVB6AkHMb
+      7JcDwXU8H3P4WAdH3rFni9IWQg5jxnk=
+      -----END CERTIFICATE-----
+    sslPrivateKey: |
+      -----BEGIN RSA PRIVATE KEY-----
+      MIICXAIBAAKBgQC66okn08yL5b+1ZySGG632CKXUdxFvuzXsPgyLWpfO9n0oOLYK
+      gaQ1VKUVynsF9EWXAd2GjUDgsm58aAmZUhCH5VfcY8TJgJJJnTv1nrINP3FGrV3p
+      i63/l0UFGcOm4i/I2HJdwjONYsaU/Hij8qZIyLjISinYBl5qD/6G2SllIwIDAQAB
+      AoGAbXZklDppE5SczLN2pEMZgXhXBTIlt/U/AvbjicioFsArU57CnSyG6eSEOVq2
+      6SnAh0rEXMPkNrLIGXskA/IXUz4gCBiz4oQrUgTBBtPiHXtdfQ12JGhO/rBl2tXu
+      iSlE/begw96fz4G9CpaMDvPgf9iUBUFg/1AX5hRS6XVLdEECQQDhA+OmpieDodlW
+      YMVNd8D24UWxNemfUr3WKY9IYmXoxcNXue8gjYqA7nAVg7HsOpG3mLWOcnPc+T3a
+      r64lGkX7AkEA1KeZspuObkrsqTva7vT5B7xRRhfs7+Hd8kaibeEBostwYYp91+s7
+      rL8P7xp5luZQa2nHguzT61dq7sjfGvW8+QJBAIiBYYPh3KrgbwcV4dwjQC8FbtAY
+      0sfS3FOmFsRk3UofX2hC5iyrcVDSVbDXmgKjbW8h91KZYGy3z6xxU4YysC0CQFKS
+      DUzbt889im0fz5+vQS7uwUQNMDPoqMxU/ubZUlBK3AUTyE9ZiF9IBMDbr9CW9yzt
+      8sj0ekjMNbooBvEp78kCQAzWzAKd3Ry4Tl5IrV7BD3ArF41VclVSLoDkxXxKNhlj
+      wQdgc6M4RJAc4JUs8SB/E8L0O/9bkJF/u0IJi+M8p1s=
+      -----END RSA PRIVATE KEY-----
 
 jobs:
   - name: api_z1
