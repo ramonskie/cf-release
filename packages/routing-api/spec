@@ -10,11 +10,13 @@ files:
   - cf-routing-release/src/github.com/bmizerany/pat/*.go # gosub
   - cf-routing-release/src/github.com/cactus/go-statsd-client/statsd/*.go # gosub
   - cf-routing-release/src/github.com/cloudfoundry-incubator/candiedyaml/*.go # gosub
+  - cf-routing-release/src/github.com/cloudfoundry-incubator/uaa-go-client/*.go # gosub
+  - cf-routing-release/src/github.com/cloudfoundry-incubator/uaa-go-client/config/*.go # gosub
+  - cf-routing-release/src/github.com/cloudfoundry-incubator/uaa-go-client/schema/*.go # gosub
   - cf-routing-release/src/github.com/cloudfoundry-incubator/cf-debug-server/*.go # gosub
   - cf-routing-release/src/github.com/cloudfoundry-incubator/cf-lager/*.go # gosub
   - cf-routing-release/src/github.com/cloudfoundry-incubator/cf_http/*.go # gosub
   - cf-routing-release/src/github.com/cloudfoundry-incubator/routing-api/*.go # gosub
-  - cf-routing-release/src/github.com/cloudfoundry-incubator/routing-api/authentication/*.go # gosub
   - cf-routing-release/src/github.com/cloudfoundry-incubator/routing-api/config/*.go # gosub
   - cf-routing-release/src/github.com/cloudfoundry-incubator/routing-api/db/*.go # gosub
   - cf-routing-release/src/github.com/cloudfoundry-incubator/routing-api/handlers/*.go # gosub
@@ -53,6 +55,8 @@ files:
   - cf-routing-release/src/github.com/onsi/gomega/matchers/support/goraph/node/*.go # gosub
   - cf-routing-release/src/github.com/onsi/gomega/matchers/support/goraph/util/*.go # gosub
   - cf-routing-release/src/github.com/onsi/gomega/types/*.go # gosub
+  - cf-routing-release/src/github.com/dgrijalva/jwt-go/*.go # gosub
+  - cf-routing-release/src/github.com/pivotal-golang/clock/*.go # gosub
   - cf-routing-release/src/github.com/pivotal-golang/lager/*.go # gosub
   - cf-routing-release/src/github.com/tedsuo/ifrit/*.go # gosub
   - cf-routing-release/src/github.com/tedsuo/ifrit/grouper/*.go # gosub
