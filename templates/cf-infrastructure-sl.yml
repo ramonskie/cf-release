@@ -1,0 +1,207 @@
+meta:
+  stemcell: (( merge || meta.default_stemcell ))
+
+  default_stemcell:
+    name: light-bosh-stemcell-3169-softlayer-esxi-ubuntu-trusty-go_agent
+    version: latest
+  
+  cloud_properties:
+    Bosh_ip: (( merge )) 
+    Domain: (( merge ))
+    VmNamePrefix: (( merge )) 
+    Datacenter: (( merge ))
+    LocalDiskFlag: (( merge ))
+    EphemeralDiskSize: (( merge ))
+    PrimaryNetworkComponent: (( merge ))
+    PrimaryBackendNetworkComponent: (( merge ))
+    NetworkComponents: (( merge ))
+
+networks: (( merge ))
+
+properties:
+  <<: (( merge ))
+  #template_only: (( merge ))
+
+  domain: (( merge ))
+
+  logger_endpoint:
+    port: 4443
+
+  uaa:
+    catalina_opts: -Xmx768m -XX:MaxPermSize=256m
+
+  dea_next:
+    deny_networks: (( merge || nil ))
+    allow_networks: (( merge || nil ))
+
+  ccdb:
+    databases:
+    - name: ccdb
+      tag: cc
+    db_scheme: postgres
+    port: 5524
+    roles:
+    - name: ccadmin
+      password: (( merge ))
+      tag: admin
+
+  uaadb:
+    db_scheme: postgresql
+    port: 5524
+    roles:
+      - name: uaaadmin
+        tag: admin
+        password: (( merge ))
+    databases:
+      - tag: uaa
+        name: uaadb
+        citext: true
+
+compilation:
+  cloud_properties: (( merge || resource_pools.medium_z1.cloud_properties ))
+
+networks: (( merge ))
+
+resource_pools:
+  - name: small_z1
+    cloud_properties:
+      Bosh_ip: (( merge || meta.cloud_properties.Bosh_ip )) 
+      Domain: (( merge || meta.cloud_properties.Domain ))
+      VmNamePrefix: (( merge || meta.cloud_properties.VmNamePrefix )) 
+      Datacenter: (( merge || meta.cloud_properties.Datacenter ))
+      LocalDiskFlag: (( merge || meta.cloud_properties.LocalDiskFlag ))
+      EphemeralDiskSize: (( merge || meta.cloud_properties.EphemeralDiskSize ))
+      PrimaryNetworkComponent: (( merge || meta.cloud_properties.PrimaryNetworkComponent ))
+      PrimaryBackendNetworkComponent: (( merge || meta.cloud_properties.PrimaryBackendNetworkComponent ))
+      NetworkComponents: (( merge || meta.cloud_properties.NetworkComponents ))
+      StartCpus: 2
+      MaxMemory: 4096
+  - name: medium_z1
+    cloud_properties:
+      Bosh_ip: (( merge || meta.cloud_properties.Bosh_ip )) 
+      Domain: (( merge || meta.cloud_properties.Domain ))
+      VmNamePrefix: (( merge || meta.cloud_properties.VmNamePrefix )) 
+      Datacenter: (( merge || meta.cloud_properties.Datacenter ))
+      LocalDiskFlag: (( merge || meta.cloud_properties.LocalDiskFlag ))
+      EphemeralDiskSize: (( merge || meta.cloud_properties.EphemeralDiskSize ))
+      PrimaryNetworkComponent: (( merge || meta.cloud_properties.PrimaryNetworkComponent ))
+      PrimaryBackendNetworkComponent: (( merge || meta.cloud_properties.PrimaryBackendNetworkComponent ))
+      NetworkComponents: (( merge || meta.cloud_properties.NetworkComponents ))
+      StartCpus: 2
+      MaxMemory: 4096
+  - name: large_z1
+    cloud_properties:
+      Bosh_ip: (( merge || meta.cloud_properties.Bosh_ip )) 
+      Domain: (( merge || meta.cloud_properties.Domain ))
+      VmNamePrefix: (( merge || meta.cloud_properties.VmNamePrefix )) 
+      Datacenter: (( merge || meta.cloud_properties.Datacenter ))
+      LocalDiskFlag: (( merge || meta.cloud_properties.LocalDiskFlag ))
+      EphemeralDiskSize: (( merge || meta.cloud_properties.EphemeralDiskSize ))
+      PrimaryNetworkComponent: (( merge || meta.cloud_properties.PrimaryNetworkComponent ))
+      PrimaryBackendNetworkComponent: (( merge || meta.cloud_properties.PrimaryBackendNetworkComponent ))
+      NetworkComponents: (( merge || meta.cloud_properties.NetworkComponents ))
+      StartCpus: 8
+      MaxMemory: 16384
+
+  - name: small_z2
+    cloud_properties: (( merge || resource_pools.small_z1.cloud_properties ))
+
+  - name: medium_z2
+    cloud_properties: (( merge || resource_pools.medium_z1.cloud_properties ))
+
+  - name: large_z2
+    cloud_properties: (( merge || resource_pools.large_z1.cloud_properties  ))
+
+  - name: runner_z1
+    cloud_properties: (( merge || resource_pools.medium_z1.cloud_properties  ))
+
+  - name: runner_z2
+    cloud_properties: (( merge || resource_pools.medium_z1.cloud_properties  ))
+
+  - name: router_z1
+    cloud_properties: (( merge || resource_pools.medium_z1.cloud_properties  ))
+
+  - name: router_z2
+    cloud_properties: (( merge || resource_pools.medium_z1.cloud_properties  ))
+
+# set up static IPs
+jobs:
+  - name: nats_z1
+    instances: 1
+    networks:
+      - name: cf1
+        static_ips: (( static_ips(1) ))
+
+  - name: nats_z2
+    instances: 0
+    networks:
+      - name: cf2
+        static_ips: (( static_ips(1) ))
+
+  - name: router_z1
+    instances: 1
+    networks:
+      - name: cf1
+        static_ips: (( static_ips(2) ))
+
+  - name: router_z2
+    instances: 0
+    networks:
+      - name: cf2
+        static_ips: (( static_ips(2) ))
+
+  - name: api_z2
+    instances: 0
+
+  - name: loggregator_z1
+    instances: 0
+    networks:
+      - name: cf1
+
+  - name: loggregator_z2
+    instances: 0
+    networks:
+      - name: cf2
+
+  - name: doppler_z1
+    instances: 1
+    networks:
+      - name: cf1
+
+  - name: doppler_z2
+    instances: 0
+
+  - name: loggregator_trafficcontroller_z1
+    instances: 1
+    networks:
+      - name: cf1
+
+  - name: loggregator_trafficcontroller_z2
+    instances: 0
+
+  - name: consul_z1
+    instances: 3
+    networks:
+      - name: cf1
+        static_ips: (( static_ips(5,6,7) ))
+
+  - name: consul_z2
+    instances: 0
+    networks:
+      - name: cf2
+        static_ips: (( static_ips(5,6,7) ))
+
+  - name: etcd_z1
+    instances: 2
+    networks:
+      - name: cf1
+        static_ips: (( static_ips(8,9) ))
+
+  - name: etcd_z2
+    instances: 0
+    networks:
+      - name: cf2
+        static_ips: (( static_ips(8,9) ))
+
+  - name: smoke_tests
+    instances: 0
