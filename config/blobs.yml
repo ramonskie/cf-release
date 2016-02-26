@@ -135,10 +135,6 @@ java-buildpack/java-buildpack-offline-v3.6.zip:
   object_id: b23c8ace-26f2-4270-94ed-a861995826e2
   sha: 886bd2888127429f7f75120d98a187cbf7289c16
   size: 253316417
-java-buildpack/java-buildpack-v3.6.zip:
-  object_id: 957d975c-43de-4c1e-83a0-6df8f1a2eb1b
-  sha: 3ddf6855baec15fb97cd486312615ce82a354dba
-  size: 164535
 ruby-buildpack/ruby_buildpack-cached-v1.6.13.zip:
   object_id: 75f96d78-2ff3-4b20-be01-18dda7e7f0bc
   sha: 712fe85a99fe8ea5fcf55e6d96b648ebb2acd66b
