@@ -25,6 +25,55 @@ properties:
         password: blobstore-password
     secure_link:
       secret: blobstore-secret
+    tls:
+      cert: |
+        -----BEGIN CERTIFICATE-----
+        MIIDIjCCAgqgAwIBAgIJAJPKRszebDYvMA0GCSqGSIb3DQEBBQUAMEUxCzAJBgNV
+        BAYTAkFVMRMwEQYDVQQIEwpTb21lLVN0YXRlMSEwHwYDVQQKExhJbnRlcm5ldCBX
+        aWRnaXRzIFB0eSBMdGQwIBcNMTYwMjI0MDAzNjMzWhgPMjI4OTEyMDgwMDM2MzNa
+        MDwxCzAJBgNVBAYTAlVTMRUwEwYDVQQKEwxDTE9VREZPVU5EUlkxFjAUBgNVBAMT
+        DWJvc2gtbGl0ZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDA
+        PqE9IWLzT88+5Q61cWepdWb6qEy6rZFnNPO14xzo8sHRsubRyNZPFx62g0zpaAd4
+        KxDqpcXn/fqen+7TUNtxsqctx/JZ30r3VFQcRWrA+oqbD9DHkoN9fjcMr/LzhZ3V
+        jJkOl01XoftZG9fwzvuGTg/JveO441Xm9keinAKGDrGVEU2Bgm9NeMqfkFUn2E9B
+        xkAwut0YtgcO9QBPZnotPMFS7yiL1GxfyRf5psLKJNoREldhZsiJjkCe7IcnhPAA
+        iCOR8G94sIpOW610y9rXbk5SuKCy3k6x5Vu8maNPup05DKORLSsJANj0t9Q0wDL/
+        AjNMSwBx0iVo1KeYcY6dAgMBAAGjHDAaMBgGA1UdEQQRMA+CDWJvc2gtbGl0ZS5j
+        b20wDQYJKoZIhvcNAQEFBQADggEBAFVEBtaGzncjqMCESnd8jeWMfed/rhnGh+ut
+        tftHS6Ppm2GuDGGLTMJPudcGisL30fdKCbNCmTibmhvGK8QF43Sggf9yukxLPR+d
+        rQBluo1jtqGXnEqRrhuCg+CSynuirDHD3vlr6Xto7Ih+63nrBYxBMVP3Be8DRk0m
+        lcR8fKGhsQz4bsFnOHj3Mi29bI9S7vRRQ/+ZY++MvVMnjgnw+j56us8VrfXPEo5t
+        9uVxtJzWZVMis5LABqB8nhbU7MY1SdqWa/RQQ9P6NDhnhWVdgJ5wnJopXSQFSfa5
+        cEVUF+pFlES2mTuW5et4IPLDY8DfdUnCp4t9s9C/VmJl/5hXNEU=
+        -----END CERTIFICATE-----
+      private_key: |
+        -----BEGIN RSA PRIVATE KEY-----
+        MIIEpQIBAAKCAQEAwD6hPSFi80/PPuUOtXFnqXVm+qhMuq2RZzTzteMc6PLB0bLm
+        0cjWTxcetoNM6WgHeCsQ6qXF5/36np/u01DbcbKnLcfyWd9K91RUHEVqwPqKmw/Q
+        x5KDfX43DK/y84Wd1YyZDpdNV6H7WRvX8M77hk4Pyb3juONV5vZHopwChg6xlRFN
+        gYJvTXjKn5BVJ9hPQcZAMLrdGLYHDvUAT2Z6LTzBUu8oi9RsX8kX+abCyiTaERJX
+        YWbIiY5AnuyHJ4TwAIgjkfBveLCKTlutdMva125OUrigst5OseVbvJmjT7qdOQyj
+        kS0rCQDY9LfUNMAy/wIzTEsAcdIlaNSnmHGOnQIDAQABAoIBAQCElS0CSdpCT5Jw
+        n+yK+hEx74P77sIsJLQY544ErQMtLO66vpUtrUMP/LPzz43lkxdDqv/ZtEZO/vwv
+        FcHR/vu46CsgCbt8e+DpvkDb1owPVzrsQfYNDWCd1cQFffsiM85sjrCoPXTbsRz1
+        kZxVuYoCUCfXTJyW0EJYLRWuccXTyW2HGpVAu/4lQb+vTjZXlsERUZQCY+o9eOtM
+        NtjHZfwzlb/qedz53p0t09AboGDgnTLDztd7xC5Nww2dS/w9ZOWBAgYzmrnA33+s
+        2uza21aGpHUVC88T/agsJKb4MUV89hUN0XzYbTYn3fBSrlQXBvBl9yQ9KrePSBSZ
+        1UEYr+EJAoGBAP65dexo35p3jGLhOWNqmQJHnWhGNM6oFC5FlIYCOo3ANzITU2y9
+        sSVtVgyVlm4zj1zBOGmpZI6isbxOkBFCzPDWYRE6eaIOzZICE0WB7kojN/qWLTuE
+        2iwszIBQ21/uHh+40R/wEcy6NdCv4BQ4Es7zFjPbu1Ng4fU41EAPigK7AoGBAME1
+        EwjDzjCS0T8x4pjZnhbRYvtw0RbNr0QcxbW59fK86vyvtfjjEBTouXKuogE7TZJr
+        5sdKffvEthiVUQtqE3nekGFvdnRyQDfm/xIVjO++1Q5A9oi9QPQfL7MCZF3UqQTT
+        MfjobWEcas/OljammhGQEJji2sx9Z75xtztmx3qHAoGBANlQkHKo5lt6MqMJU1Sl
+        1PRE9N3JR7QnYVA4vIW30QyuOGjYZAwZqdAsf4Us+bH6+ww/LEm44rltxATLYc3Y
+        F9BAlX+FS9AeoPM4Igji2NEXSuLWzLBCn3+gmLfAQ+iL1ddqbb+5qPXox5DK+3lE
+        fYdhjEeh5yczOJNlcG9W0n+RAoGASDK3HC1fXZNfkgfoL0oS41/3ZxJvb+AIwKEn
+        2JLXL5AdF7PpgkoHdmjI8+wCKgepIzAjGxHhJjYJ/gG+OU+4W3Ap798hGr6e9MTj
+        SDS5Z9Wd9CeeeNaP8Sm+P1yDePTA/EaXg/YG+aUO3PzL8TwskqeNLDSJoqSyId6I
+        pC/yFv0CgYEA70Sae3ZL4VsKxeSvPqUWxatwDWXuRs0vKTXhOI/3MeZPcKu/Cyml
+        AlWOkr2JFNLjS41MccJ18444fFGZA9uMtXgon+5DTTwpFMXCS7ia0xTZMR0crjJF
+        6DTQE36iw/n6xljoITuN0tuEGy5ieTx2J/q6iqd2x9TIVzwZ9p19H00=
+        -----END RSA PRIVATE KEY-----
 
   domain: bosh-lite.com
 
